@@ -1,0 +1,10 @@
+{
+  "database": {
+    "dbConfig": {
+      "host": "cluster0-hoxm7.mongodb.net",
+      "dbName": "shade6",
+      "username": "Athavan",
+      "password": "Athavan61*"
+    }
+  }
+}

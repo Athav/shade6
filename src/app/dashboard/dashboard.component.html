@@ -1,0 +1,63 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+      <!-- Header -->
+      <div class="row m-0 bg-primary" [style.height.px]="headerHeight">
+        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+          <div class="d-table h-100 w-100">
+            <div class="d-table-cell h-100 w-100 align-middle">
+              <!-- <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                <mat-icon>favorite</mat-icon>
+              </button> -->
+              <h4 class="ml-2">
+                <div class="w-10 cur-default" (click)="dashBoard()">Dashboard</div>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Body content -->
+      <div class="row m-0" [style.height.px]="bodyHeight">
+        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0 overflow-auto">
+          <router-outlet></router-outlet>
+          <!-- <div class="d-table h-100 w-100">
+            <div class="d-table-cell h-100 w-100 align-middle">
+              <div class="row h-100 m-0">
+                <div class="col col-12 col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12 h-100 p-0">                  
+                  <div class="row h-100 m-0">
+                    <div class="col col-12 p-0">
+                      <div class="d-table h-100 w-100">
+                        <div class="d-table-cell h-100 w-100">
+                          <router-outlet></router-outlet>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="row m-0 bg-primary" [style.height.px]="footerHeight">
+        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+          <div class="d-table h-100 w-100">
+            <div class="d-table-cell h-100 w-100 align-middle text-center">
+              <marquee class="cur-default text-white" behavior="" direction="left" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                This is sample application.
+                &nbsp;&nbsp;
+                All new User Interface COMING SOON.... &nbsp;
+                <span style="BACKGROUND-COLOR: #ff6600; text-decoration: underline;">
+                  Application welcomes you!!!!!!</span> &nbsp;
+                INDIA : Sample zone level message
+              </marquee>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

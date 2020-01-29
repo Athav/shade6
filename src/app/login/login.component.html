@@ -1,0 +1,58 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+      <div class="d-table h-100 w-100">
+        <div class="d-table-cell h-100 w-100 align-middle">
+          <div class="row h-50 w-75 m-auto">
+            <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+              <mat-card class="h-100 w-100 bg-primary">
+                <!-- Header -->
+                <div class="row h-10 m-0">
+                  <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+                    <div class="d-table h-100 w-100">
+                      <div class="d-table-cell h-100 w-100 align-middle text-center">
+                        <h4>Login</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Body content -->
+                <div class="row h-80 m-0">
+                  <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+                    <div class="d-table h-100 w-100">
+                      <div class="d-table-cell h-100 w-100 align-middle">
+                        <form class="w-60 m-auto" [formGroup]="loginForm" autocomplete="off" (submit)="onLogin()">
+                          <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                              aria-describedby="emailHelp" placeholder="Enter email" formControlName="userName">
+                          </div>
+                          <div class="form-group">
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                              placeholder="Password" formControlName="password">
+                          </div>
+                          <button type="submit" class="btn btn-sm btn-light btn-outline-success">Login</button>
+                          <button type="button" (click)="onSignUp()"
+                            class="btn btn-sm btn-light btn-outline-secondary ml-3">Register</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Footer -->
+                <div class="row h-10 m-0">
+                  <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+                    <div class="d-table h-100 w-100">
+                      <div class="d-table-cell h-100 w-100 align-middle text-center">
+                        This is sample application.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
