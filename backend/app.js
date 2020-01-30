@@ -441,6 +441,23 @@ app.post('/update-product', (req, res, next) => {
 
 
 app.post('/deleteone', (req, res, next) => {
-  console.log('deleting')
+  res.status(201).json({
+    msg: 'Deleted'
+  })
+  addProduct.findOneAndDelete({
+    productCode: req.body.prodCode
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) {
+      console.log("Something wrong when updating data!");
+    } else {
+      console.log(doc);
+      res.status(201).json({
+        msg: 'Product removed',
+        posts: docs
+      });
+    }
+  });
 });
 module.exports = app;

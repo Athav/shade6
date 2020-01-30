@@ -53,7 +53,7 @@ export class GenericService {
     const codePrd = {
       pCode: val
     }
-    return this.http.post<{ msg: string }>('http://localhost:3001/getip/', val);
+    return this.http.post<{ msg: string }>('http://localhost:3001/deleteone/', val);
   }
 
   // Getting all products by descending order
