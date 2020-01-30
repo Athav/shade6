@@ -1,1 +1,41 @@
-<p>viewproduct works!</p>
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+            <div class="d-table h-100 w-100">
+                <div class="d-table-cell h-100 w-100 align-middle">
+                    <form class="w-60 m-auto" [formGroup]="productForm" autocomplete="off" (submit)="productOk()">
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.productId" class="form-control"
+                                formControlName="productId">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" [value]="prdArr.productCode" class="form-control"
+                                placeholder="Product Code" formControlName="productCode">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" [value]="prdArr.productName" class="form-control"
+                                placeholder="Product Name" formControlName="productName">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" [value]="prdArr.productCategory" class="form-control"
+                                placeholder="Product Category" formControlName="productCategory">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.productPrice" class="form-control"
+                                placeholder="Product Price" formControlName="productPrice">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.productStock" class="form-control"
+                                placeholder="Product Stock" formControlName="productStock">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.storeCode" class="form-control"
+                                placeholder="Store Code" formControlName="storeCode">
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-light btn-outline-success">Ok</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { GenericService } from './../services/generic.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 export interface PeriodicElement {
   productId: any;
   productCode: any;
@@ -29,6 +30,7 @@ export class ProductListComponent implements OnInit {
   arr: any[];
   aggregateArr: any[];
   aggregateAvgArr: any[];
+  sendPrdSub: Subscription;
   constructor(
     private generic: GenericService,
     private route: Router,
@@ -36,7 +38,6 @@ export class ProductListComponent implements OnInit {
   ) {
     this.generic.getAllProducts().subscribe(arg => {
       this.arr = [...arg.detail];
-      // console.log(this.arr);
       this.dataSource = new MatTableDataSource([...this.arr]);
     });
   }
@@ -66,22 +67,47 @@ export class ProductListComponent implements OnInit {
   }
 
   addProduct() {
-    this.route.navigateByUrl('dashboard/add-product');
+    this.route.navigateByUrl('side-nav/add-product');
   }
 
   details(val) {
-    console.log(val);
-    this.route.navigateByUrl('dashboard/view-product');
+    const prdVal = {
+      namePrd: val
+    }
+    this.generic.viewProduct(prdVal);
+    if (this.sendPrdSub) {
+      this.sendPrdSub.unsubscribe();
+    }
+    this.sendPrdSub = this.generic.returnViewPrd().subscribe(arg => {
+      if (arg != null && arg != undefined) {
+        this.route.navigateByUrl('side-nav/view-product');
+      }
+    });
   }
+
   update(val) {
-    console.log(val);
-    this.route.navigateByUrl('dashboard/update-product');
+    const prdVal = {
+      namePrd: val
+    }
+    this.generic.viewProduct(prdVal);
+    if (this.sendPrdSub) {
+      this.sendPrdSub.unsubscribe();
+    }
+    this.sendPrdSub = this.generic.returnViewPrd().subscribe(arg => {
+      if (arg != null && arg != undefined) {
+        this.route.navigateByUrl('side-nav/update-product');
+      }
+    });
   }
+
   delete(val) {
-    console.log(val);
-    this.openDialog(val);
-    // this.route.navigateByUrl('dashboard/add-product');
+    // this.openDialog(val);
+    const delData = {
+      code: val
+    }
+    this.generic.deleteProduct(delData);
   }
+
   openDialog(dataPrd) {
     this.dialog.open(DialogDataExampleDialog, {
       disableClose: true,
@@ -103,8 +129,14 @@ export class ProductListComponent implements OnInit {
   styleUrls: ['./product-list.component.css']
 })
 export class DialogDataExampleDialog implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private generic: GenericService,
+  ) {
     console.log(data)
+  }
+  deleteProd() {
+    this.generic.deleteProduct(this.data);
   }
   ngOnInit() { }
 }

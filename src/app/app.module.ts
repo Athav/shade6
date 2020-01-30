@@ -24,6 +24,12 @@ import { ProductListComponent, DialogDataExampleDialog } from './product-list/pr
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { UpdateproductComponent } from './updateproduct/updateproduct.component';
+import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,9 @@ import { UpdateproductComponent } from './updateproduct/updateproduct.component'
     ProductAddComponent,
     ViewproductComponent,
     UpdateproductComponent,
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    MainDashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,11 @@ import { UpdateproductComponent } from './updateproduct/updateproduct.component'
     MatPaginatorModule,
     MatInputModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

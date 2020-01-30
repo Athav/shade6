@@ -4,24 +4,31 @@
       <div class="d-table h-100 w-100">
         <div class="d-table-cell h-100 w-100 align-middle">
           <form class="w-60 m-auto" [formGroup]="productForm" autocomplete="off" (submit)="saveProduct()">
+            Enter product id
             <div class="form-group">
               <input type="number" class="form-control" placeholder="Product Id" formControlName="productId">
             </div>
+            Enter product code
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Product Code" formControlName="productCode">
             </div>
+            Enter product name
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Product Name" formControlName="productName">
             </div>
+            Enter product category
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Product Category" formControlName="productCategory">
             </div>
+            Enter product price
             <div class="form-group">
               <input type="number" class="form-control" placeholder="Product Price" formControlName="productPrice">
             </div>
+            Enter product stock
             <div class="form-group">
               <input type="number" class="form-control" placeholder="Product Stock" formControlName="productStock">
             </div>
+            Enter store
             <div class="form-group">
               <input type="number" class="form-control" placeholder="Store Code" formControlName="storeCode">
             </div>

@@ -1,1 +1,50 @@
-<p>updateproduct works!</p>
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 h-100 p-0">
+            <div class="d-table h-100 w-100">
+                <div class="d-table-cell h-100 w-100 align-middle">
+                    <form class="w-60 m-auto" [formGroup]="productForm" autocomplete="off"
+                        (submit)="updateProduct(id,pcode,pname,pcate,pprice,pstock,store)">
+                        Update product id
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.productId" class="form-control" #id
+                                formControlName="productId">
+                        </div>
+                        Update product code
+                        <div class="form-group">
+                            <input type="text" [value]="prdArr.productCode" class="form-control" #pcode
+                                placeholder="Product Code" formControlName="productCode">
+                        </div>
+                        Update product name
+                        <div class="form-group">
+                            <input type="text" [value]="prdArr.productName" class="form-control" #pname
+                                placeholder="Product Name" formControlName="productName">
+                        </div>
+                        Update product category
+                        <div class="form-group">
+                            <input type="text" [value]="prdArr.productCategory" class="form-control" #pcate
+                                placeholder="Product Category" formControlName="productCategory">
+                        </div>
+                        Update product price
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.productPrice" class="form-control" #pprice
+                                placeholder="Product Price" formControlName="productPrice">
+                        </div>
+                        Update product stock
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.productStock" class="form-control" #pstock
+                                placeholder="Product Stock" formControlName="productStock">
+                        </div>
+                        Update store
+                        <div class="form-group">
+                            <input type="number" [value]="prdArr.storeCode" class="form-control" #store
+                                placeholder="Store Code" formControlName="storeCode">
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-light btn-outline-success">Ok</button>
+                        <button type="reset" class="btn btn-sm btn-light btn-outline-secondary ml-3">Clear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

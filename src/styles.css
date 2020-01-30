@@ -26,6 +26,10 @@ body {
   height: 30% !important;
 }
 
+.h-33-3 {
+  height: 33.3% !important;
+}
+
 .h-40 {
   height: 40% !important;
 }
@@ -62,6 +66,10 @@ body {
   width: 30% !important;
 }
 
+.w-35 {
+  width: 35% !important;
+}
+
 .w-40 {
   width: 40% !important;
 }
@@ -84,4 +92,12 @@ body {
 
 .cur-default {
   cursor: pointer !important;
+}
+
+.b-radius-50 {
+  border-radius: 50% !important;
+}
+
+td.mat-cell:last-of-type {
+  padding-right: 3% !important;
 }

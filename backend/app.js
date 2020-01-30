@@ -73,23 +73,27 @@ app.get("/", (req, res, next) => {
 
 // Getting mac address
 app.get('/getip', (req, res, next) => {
-  macaddress.all(function (err, all) {
-    // console.log(JSON.stringify(all.Ethernet, null, 2));
-    // res.json({
-    //   all
-    // });
-    if (all != null || all != '') {
-      res.status(201).json({
-        msg: 'Ip got successfully',
-        detail: all.Ethernet
-      });
-    } else {
-      res.status(201).json({
-        msg: 'Ip get failed',
-        detail: null
-      });
-    }
+  console.log(req.body);
+  res.status(201).json({
+    msg: 'delete successfully'
   });
+  // macaddress.all(function (err, all) {
+  //   // console.log(JSON.stringify(all.Ethernet, null, 2));
+  //   // res.json({
+  //   //   all
+  //   // });
+  //   if (all != null || all != '') {
+  //     res.status(201).json({
+  //       msg: 'Ip got successfully',
+  //       detail: all.Ethernet
+  //     });
+  //   } else {
+  //     res.status(201).json({
+  //       msg: 'Ip get failed',
+  //       detail: null
+  //     });
+  //   }
+  // });
 });
 
 
@@ -283,10 +287,59 @@ app.post('/add-product', (req, res, next) => {
   })
 });
 
-// Get all products
+// view-product
+app.post('/view-product', (req, res, next) => {
+  console.log(req.body)
+  addProduct.findOne({
+    productCode: req.body.namePrd
+  }).then(docs => {
+    console.log(docs);
+    if (docs != null) {
+      res.status(201).json({
+        msg: 'Product exist',
+        posts: docs
+      });
+    } else {
+      res.status(201).json({
+        msg: 'Product not exist',
+        posts: docs
+      });
+    }
+  }).catch(err => {
+    console.log(err);
+  })
+});
+
+
+// view-product
+app.post('/del-product', (req, res, next) => {
+  console.log(req.body)
+  addProduct.findOneAndDelete({
+    productCode: req.body.prodCode
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) {
+      console.log("Something wrong when updating data!");
+    } else {
+      console.log(doc);
+      res.status(201).json({
+        msg: 'Product removed',
+        posts: docs
+      });
+    }
+  });
+});
+
+
+// Get all products by descending order
 app.post('/products', (req, res, next) => {
   // console.log(req.body)
-  addProduct.find({}).then(docs => {
+  addProduct.aggregate([{
+    $sort: {
+      productId: -1
+    }
+  }]).then(docs => {
     console.log(docs);
     if (docs != null) {
       console.log('Product fetched successfully');
@@ -356,4 +409,38 @@ app.post('/productsavg', (req, res, next) => {
   );
 });
 
+// Update-product
+app.post('/update-product', (req, res, next) => {
+  console.log(req.body)
+  addProduct.findOneAndUpdate({
+    productCode: req.body.prodCode
+  }, {
+    $set: {
+      productId: req.body.prodId,
+      productCode: req.body.prodCode,
+      productName: req.body.prodName,
+      productCategory: req.body.prodCategory,
+      productPrice: req.body.prodPrice,
+      productStock: req.body.prodStock,
+      storeCode: req.body.storeCode
+    }
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) {
+      console.log("Something wrong when updating data!");
+    } else {
+      console.log(doc);
+      res.status(201).json({
+        msg: 'Product updated',
+        posts: doc
+      });
+    }
+  });
+});
+
+
+app.post('/deleteone', (req, res, next) => {
+  console.log('deleting')
+});
 module.exports = app;

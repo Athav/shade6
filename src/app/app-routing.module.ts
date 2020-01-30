@@ -7,6 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { UpdateproductComponent } from './updateproduct/updateproduct.component';
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
+import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
@@ -14,13 +16,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignupComponent },
   {
-    path: 'dashboard', component: DashboardComponent, children: [
-      { path: '', component: ProductListComponent },
+    path: 'side-nav', component: MainDashboardComponent, children: [
+      { path: '', component: HomeComponent },
       { path: 'product-list', component: ProductListComponent },
       { path: 'add-product', component: ProductAddComponent },
       { path: 'update-product', component: UpdateproductComponent },
       { path: 'view-product', component: ViewproductComponent },
-
     ]
   }
 ];

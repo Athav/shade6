@@ -10,12 +10,12 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
+  // Register fuction
   onRegister(userObj: any) {
-    // console.log(userObj);
     return this.http.post<{ msg: string, posts: any[] }>('http://localhost:3001/register/', userObj);
   }
+  // Login fuction
   onLogin(userObj: any) {
-    // console.log(userObj);
     return this.http.post<{ msg: string, posts: any[] }>('http://localhost:3001/getuser/', userObj);
   }
 }
