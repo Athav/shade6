@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         console.log(arg);
         if (arg.msg === "User fetched") {
           this.generic.openSnackBar(`Login success`, `Close`);
-          this.route.navigateByUrl('/dashboard')
+          this.route.navigateByUrl('/side-nav')
         } else if (arg.msg === 'User not exist') {
           this.generic.openSnackBar('User not exist please register', 'Close');
         } else {
